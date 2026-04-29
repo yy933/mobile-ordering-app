@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Smythe&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Mobile Ordering App</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Jimmy's Diner</h1>
+      <h2>The best burgers and pizzas in town.</h2>
+    </header>
+
+    <main>
+      <section
+        class="menu container default-state"
+        aria-labelledby="menu-heading"
+      >
+        <h2 id="menu-heading" class="sr-only">Our Menu</h2>
+
+        <ul class="menu-list">
+          <!-- Menu item will be generated here by JavaScript. -->
+        </ul>
+      </section>
+
+      <!-- This section will be rendered by JavaScript once the user add items to the order. -->
+      <section
+        class="checkout-section container pre-checkout-state hide"
+        aria-labelledby="order-heading"
+      >
+        <h2 id="order-heading" class="checkout-title fs-title">Your order</h2>
+        <ul class="checkout-list">
+          <!-- Checkout item will be generated here by JavaScript. -->
+        </ul>
+        <div class="checkout-total">
+          <div class="total-row">
+            <span class="fs-title">Total price:</span>
+            <span class="total-amount fs-price">$26</span>
+          </div>
+          <button type="button" class="complete-order-btn btn-primary">
+            Complete Order
+          </button>
+        </div>
+      </section>
+
+      <!-- This section will be rendered by JavaScript once the user clicks the "Complete Order" button. -->
+      <section
+        class="modal checkout-payment-modal-state hide"
+        id="payment-modal"
+        aria-labelledby="modal-heading"
+      >
+        <button
+          type="button"
+          class="close-modal-btn btn-icon"
+          aria-label="Close"
+        >
+          ×
+        </button>
+        <form class="container" id="payment-form">
+          <h2 id="modal-heading">Enter Card Details</h2>
+          <div class="card-details">
+            <div class="form-group">
+              <label for="user-name" class="sr-only">Name</label>
+              <input
+                type="text"
+                id="user-name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="card-number" class="sr-only">Card Number</label>
+              <input
+                type="text"
+                id="card-number"
+                name="cardNumber"
+                inputmode="numeric"
+                placeholder="Enter card number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cvv" class="sr-only">CVV</label>
+              <input
+                type="text"
+                id="cvv"
+                name="CVV"
+                inputmode="numeric"
+                placeholder="Enter CVV"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="pay-btn btn-primary">Pay</button>
+        </form>
+      </section>
+
+      <!-- This section will be rendered by JavaScript once the user submits the payment form.  -->
+      <section class="order-complete-state container hide">
+        <div role="status" aria-live="polite">
+          <h2 class="fs-title">Thanks, James! Your order is on its way.</h2>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
