@@ -72,8 +72,10 @@
                 type="text"
                 id="user-name"
                 name="name"
+                minlength="2"
                 placeholder="Enter your name"
                 required
+                aria-required="true"
               />
             </div>
             <div class="form-group">
@@ -85,18 +87,30 @@
                 inputmode="numeric"
                 placeholder="Enter card number"
                 required
+                pattern="\d{16}"
+                maxlength="16"
+                title="Please enter a 16-digit card number"
+                aria-describedby="card-number-desc"
+                aria-required="true"
               />
+              <span id="card-number-desc" class="sr-only">Format: 16 digits without spaces</span>
             </div>
             <div class="form-group">
               <label for="cvv" class="sr-only">CVV</label>
               <input
                 type="text"
                 id="cvv"
-                name="CVV"
+                name="cvv"
                 inputmode="numeric"
                 placeholder="Enter CVV"
                 required
+                pattern="\d{3}"
+                maxlength="3"
+                title="Please enter a 3-digit CVV"
+                aria-describedby="cvv-desc"
+                aria-required="true"
               />
+              <span id="cvv-desc" class="sr-only">Format: 3 digit security code</span>
             </div>
           </div>
 
