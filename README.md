@@ -1,6 +1,8 @@
 ## Mobile Ordering App
 A sleek, responsive mobile-first web application for a local diner. Users can browse the menu, manage a real-time shopping cart, apply automated discounts, and complete a simulated checkout process.
 
+Access the web app here: https://jimmysdinerorderingapp.netlify.app/
+
 ## Features
 - **Dynamic Menu Rendering**: Menu items are generated dynamically from a data module, making it easy to update prices or descriptions in one place.
 
