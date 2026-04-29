@@ -3,6 +3,7 @@ const menuList = document.querySelector(".menu-list");
 const checkoutList = document.querySelector(".checkout-list");
 const checkoutSection = document.querySelector(".checkout-section");
 const totalAmount = document.querySelector(".total-amount");
+const comboDiscountText = document.querySelector(".combo-discount");
 const completeOrderBtn = document.querySelector(".complete-order-btn");
 const paymentModal = document.getElementById("payment-modal");
 const closeModalBtn = document.querySelector(".close-modal-btn");
@@ -58,6 +59,7 @@ cardNumber.addEventListener("input", (e) => {
 });
 cvv.addEventListener("input", (e) => handleNumericInput(e, 3));
 
+// --- Major functions --- //
 // render menu items to the page
 function renderMenu(data) {
   const menuHtml = data
@@ -87,6 +89,7 @@ function renderMenu(data) {
   menuList.innerHTML = menuHtml;
 }
 
+// User flow related functions
 // add items to order list when user clicks the add button
 function addToOrder(id) {
   // hide order complete state if user adds more items after completing an order
@@ -134,14 +137,6 @@ function renderOrder() {
   }
 }
 
-// calculate total price of the order
-function calculateTotal() {
-  const total = orderArray.reduce((sum, item) => sum + item.price, 0);
-  console.log(total);
-  totalAmount.textContent = `$${total}`;
-  return total;
-}
-
 // submit payment form
 function submitPaymentForm() {
   // get card details input values
@@ -152,8 +147,9 @@ function submitPaymentForm() {
   paymentModal.classList.add("hide");
   checkoutSection.classList.add("hide");
 
-  // clear the order array for a new order
+  // clear the order array and checkout listfor a new order
   orderArray = [];
+  checkoutList.innerHTML = "";
 
   // render order complete state with user's name
   orderCompleteState.innerHTML = `
@@ -166,9 +162,28 @@ function submitPaymentForm() {
   paymentForm.reset();
 }
 
+// Tool/helper functions
+// calculate total price of the order
+function calculateTotal() {
+  // calculate subtotal
+  const subtotal = orderArray.reduce((sum, item) => sum + item.price, 0);
+
+  // apply combo discount
+  const hasDiscount =
+    orderArray.some((item) => item.name === "Beer") && orderArray.length >= 2;
+  const discountAmount = 2;
+  const finalTotal = hasDiscount ? subtotal - discountAmount : subtotal;
+
+  // UI updates
+  comboDiscountText.classList.toggle("hide", !hasDiscount);
+  totalAmount.textContent = `$${finalTotal}`;
+
+  return finalTotal;
+}
+
 // restrict card number and CVV inputs to numeric values only and limit
 const handleNumericInput = (e, limit) => {
-  // restrict input to numeric values only 
+  // restrict input to numeric values only
   let value = e.target.value.replace(/\D/g, "");
 
   // restrict input length to the specified limit
@@ -179,6 +194,5 @@ const handleNumericInput = (e, limit) => {
   e.target.value = value;
 };
 
-
-
+// Render
 renderMenu(menuArray);

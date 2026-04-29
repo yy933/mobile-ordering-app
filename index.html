@@ -42,7 +42,10 @@
         <div class="checkout-total">
           <div class="total-row">
             <span class="fs-title">Total price:</span>
-            <span class="total-amount fs-price">$26</span>
+            <div class="total-amount-details">
+              <span class="combo-discount hide">Combo discount applied!</span>
+              <span class="total-amount fs-price">$26</span>
+            </div>
           </div>
           <button type="button" class="complete-order-btn btn-primary">
             Complete Order
@@ -93,7 +96,9 @@
                 aria-describedby="card-number-desc"
                 aria-required="true"
               />
-              <span id="card-number-desc" class="sr-only">Format: 16 digits without spaces</span>
+              <span id="card-number-desc" class="sr-only"
+                >Format: 16 digits without spaces</span
+              >
             </div>
             <div class="form-group">
               <label for="cvv" class="sr-only">CVV</label>
@@ -110,7 +115,9 @@
                 aria-describedby="cvv-desc"
                 aria-required="true"
               />
-              <span id="cvv-desc" class="sr-only">Format: 3 digit security code</span>
+              <span id="cvv-desc" class="sr-only"
+                >Format: 3 digit security code</span
+              >
             </div>
           </div>
 

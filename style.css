@@ -248,6 +248,13 @@ button {
   margin: 25px 0;
 }
 
+.combo-discount {
+  margin-right: 0.3rem;
+  color: red;
+  font-size: 0.75rem;
+  font-family: Verdana, sans-serif;
+}
+
 .total-amount {
   margin-top: 8px;
 }
@@ -359,7 +366,7 @@ button {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
-/* hide section */
-section.hide {
+/* hide elements */
+.hide {
   display: none;
 }
