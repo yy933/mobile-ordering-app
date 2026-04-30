@@ -158,6 +158,42 @@ button {
   padding-top: 67px;
 }
 
+.promo-banner {
+  background-color: #fdf2f2;
+  border: 1px solid #feb2b2;
+  color: #c53030;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  font-size: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+.badge {
+  background-color: #c53030;
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .item {
   width: 100%;
   min-height: 140px;

@@ -70,12 +70,14 @@ function renderMenu(data) {
   const menuHtml = data
     .map((menuItem) => {
       const { name, ingredients, price, image, id } = menuItem;
+      const promoBadge =
+        name === "Beer" ? `<span class="badge">Combo Pick!</span>` : "";
 
       return `
       <li class="item">
         <img class="item-graphic" src="${image}" alt="${name}" />
         <div class="item-info">
-          <h3 class="item-title fs-title">${name}</h3>
+          <h3 class="item-title fs-title">${name}${promoBadge}</h3>
           <p class="item-description">${ingredients.join(", ")}</p>
           <span class="item-price fs-price">$${price}</span>
         </div>
