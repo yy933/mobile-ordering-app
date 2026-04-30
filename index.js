@@ -13,6 +13,7 @@ const closeModalBtn = document.querySelector(".close-modal-btn");
 const paymentForm = document.getElementById("payment-form");
 const cardNumber = document.getElementById("card-number");
 const cvv = document.getElementById("cvv");
+const payBtn = document.querySelector(".pay-btn");
 const orderCompleteState = document.querySelector(".order-complete-state");
 
 // save order items in an array
@@ -40,6 +41,10 @@ checkoutList.addEventListener("click", (e) => {
 // show payment modal when user clicks the complete order button
 completeOrderBtn.addEventListener("click", () => {
   paymentModal.classList.remove("hide");
+  const finalTotal = calculateTotal();
+  if (payBtn) {
+    payBtn.textContent = `Pay $${finalTotal}`;
+  }
 });
 
 // hide payment modal when user clicks the close button
