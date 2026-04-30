@@ -40,11 +40,8 @@ checkoutList.addEventListener("click", (e) => {
 
 // show payment modal when user clicks the complete order button
 completeOrderBtn.addEventListener("click", () => {
+  calculateTotal();
   paymentModal.classList.remove("hide");
-  const finalTotal = calculateTotal();
-  if (payBtn) {
-    payBtn.textContent = `Pay $${finalTotal}`;
-  }
 });
 
 // hide payment modal when user clicks the close button
@@ -177,22 +174,38 @@ function submitPaymentForm() {
 // Tool/helper functions
 // calculate total price of the order
 function calculateTotal() {
+  // calculate total
+  const pricing = getOrderPricing(orderArray);
+
+  // update UI
+  updatePricingUI(pricing);
+  return pricing.finalTotal;
+}
+
+function getOrderPricing(orderItems) {
   // calculate subtotal
-  const subtotal = orderArray.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = orderItems.reduce((sum, item) => sum + item.price, 0);
 
   // apply combo discount
   const hasDiscount =
-    orderArray.some((item) => item.name === "Beer") && orderArray.length >= 2;
+    orderItems.some((item) => item.name === "Beer") && orderItems.length >= 2;
   const discountAmount = 2;
   const finalTotal = hasDiscount ? subtotal - discountAmount : subtotal;
 
-  // UI updates
+  return { subtotal, discountAmount, finalTotal, hasDiscount };
+}
+
+function updatePricingUI(pricing) {
+  const { subtotal, finalTotal, hasDiscount } = pricing;
+
+  // UI updates in checkout section
   comboDiscountText.classList.toggle("hide", !hasDiscount);
   totalAmountWithoutDiscount.classList.toggle("hide", !hasDiscount);
   totalAmountWithoutDiscount.textContent = `$${subtotal}`;
   totalAmount.textContent = `$${finalTotal}`;
 
-  return finalTotal;
+  // UI updates in payment modal
+  payBtn.textContent = `Pay $${finalTotal}`;
 }
 
 // restrict card number and CVV inputs to numeric values only and limit
