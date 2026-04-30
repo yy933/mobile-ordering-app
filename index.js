@@ -147,6 +147,10 @@ function renderOrder() {
 
 // submit payment form
 function submitPaymentForm() {
+  // disable the pay button and show processing state to prevent multiple submissions
+  payBtn.disabled = true;
+  payBtn.textContent = "Processing...";
+
   // get card details input values
   const paymentFormData = new FormData(paymentForm);
   const userName = paymentFormData.get("name");
