@@ -255,6 +255,12 @@ button {
   font-family: Verdana, sans-serif;
 }
 
+.total-amount-without-discount {
+  text-decoration: line-through;
+  color: #bbbbbb;
+  margin: 0 0.15rem;
+}
+
 .total-amount {
   margin-top: 8px;
 }

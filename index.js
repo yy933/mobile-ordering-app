@@ -4,6 +4,9 @@ const checkoutList = document.querySelector(".checkout-list");
 const checkoutSection = document.querySelector(".checkout-section");
 const totalAmount = document.querySelector(".total-amount");
 const comboDiscountText = document.querySelector(".combo-discount");
+const totalAmountWithoutDiscount = document.querySelector(
+  ".total-amount-without-discount",
+);
 const completeOrderBtn = document.querySelector(".complete-order-btn");
 const paymentModal = document.getElementById("payment-modal");
 const closeModalBtn = document.querySelector(".close-modal-btn");
@@ -176,6 +179,8 @@ function calculateTotal() {
 
   // UI updates
   comboDiscountText.classList.toggle("hide", !hasDiscount);
+  totalAmountWithoutDiscount.classList.toggle("hide", !hasDiscount);
+  totalAmountWithoutDiscount.textContent = `$${subtotal}`;
   totalAmount.textContent = `$${finalTotal}`;
 
   return finalTotal;
