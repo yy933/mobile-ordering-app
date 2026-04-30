@@ -144,31 +144,40 @@ function renderOrder() {
 
 // submit payment form
 function submitPaymentForm() {
-  // disable the pay button and show processing state to prevent multiple submissions
-  payBtn.disabled = true;
-  payBtn.textContent = "Processing...";
-
-  // get card details input values
+  // get user's name
   const paymentFormData = new FormData(paymentForm);
   const userName = paymentFormData.get("name");
 
-  // hide payment modal and checkout section
-  paymentModal.classList.add("hide");
-  checkoutSection.classList.add("hide");
+  // disable the pay button and show processing state to prevent multiple submissions
+  payBtn.disabled = true;
+  payBtn.textContent = "Processing...";
+  payBtn.style.cursor = "not-allowed"; // 增加視覺上的禁用感
+  payBtn.style.opacity = "0.7";
 
-  // clear the order array and checkout listfor a new order
-  orderArray = [];
-  checkoutList.innerHTML = "";
+  // simulate payment processing delay with setTimeout
+  setTimeout(() => {
+    // hide payment modal and checkout section
+    paymentModal.classList.add("hide");
+    checkoutSection.classList.add("hide");
 
-  // render order complete state with user's name
-  orderCompleteState.innerHTML = `
-    <div role="status" aria-live="polite">
-      <h2 class="fs-title">Thanks, ${userName}! Your order is on its way.</h2>
-    </div>`;
-  orderCompleteState.classList.remove("hide");
+    // clear the order array and checkout list for a new order
+    orderArray = [];
+    checkoutList.innerHTML = "";
 
-  // reset the payment form
-  paymentForm.reset();
+    // show order complete state with user's name
+    orderCompleteState.innerHTML = `
+            <div role="status" aria-live="polite">
+                <h2 class="fs-title">Thanks, ${userName}! Your order is on its way.</h2>
+            </div>`;
+    orderCompleteState.classList.remove("hide");
+
+    // reset the payment form
+    paymentForm.reset();
+    payBtn.disabled = false;
+    payBtn.textContent = "Pay";
+    payBtn.style.cursor = "pointer";
+    payBtn.style.opacity = "1";
+  }, 3000);
 }
 
 // Tool/helper functions
