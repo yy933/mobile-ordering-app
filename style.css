@@ -29,7 +29,7 @@ button {
 
 /* --- 1. Typography System --- */
 .fs-title {
-  font-size: clamp(1.8rem, 5vw + 1rem, 2rem);
+  font-size: clamp(1.6rem, 5vw + 1rem, 1.9rem);
   line-height: 1.1;
   margin: 0;
   letter-spacing: 0.03em;
@@ -280,21 +280,18 @@ button {
 
 .checkout-section {
   width: 100%;
-  margin-top: 25px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .checkout-list,
-.total-row {
+.checkout-total {
   width: 100%;
-  max-width: 580px;
 }
 
 .checkout-total {
-  width: 100%;
-  max-width: 508px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -322,21 +319,35 @@ button {
   margin: 25px 0;
 }
 
-.combo-discount {
-  margin-right: 0.3rem;
-  color: red;
-  font-size: 0.75rem;
-  font-family: Verdana, sans-serif;
-}
-
 .total-amount-without-discount {
   text-decoration: line-through;
   color: #bbbbbb;
   margin: 0 0.15rem;
 }
 
+.total-amount-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.total-amount-details-numeric {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
 .total-amount {
-  margin-top: 8px;
+  margin-top: 0;
+}
+
+.combo-discount {
+  margin: 0;
+  color: #c53030;
+  font-size: 0.85rem;
+  font-family: Verdana, sans-serif;
+  white-space: nowrap;
 }
 
 .complete-order-btn {
@@ -356,12 +367,13 @@ button {
   }
 
   .menu {
-    flex: 1 0 65%;
+    flex: 1 0 60%;
   }
 
   .checkout-section {
-    flex: 0 0 35%;
-    padding-left: 2.5rem;
+    flex: 0 0 40%;
+    padding-left: 2rem;
+    min-width: 320px;
   }
 }
 
