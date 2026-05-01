@@ -29,7 +29,7 @@ button {
 
 /* --- 1. Typography System --- */
 .fs-title {
-  font-size: clamp(2rem, 5vw + 1rem, 2.3rem);
+  font-size: clamp(1.8rem, 5vw + 1rem, 2rem);
   line-height: 1.1;
   margin: 0;
   letter-spacing: 0.03em;
@@ -101,13 +101,14 @@ button {
 
 /* --- 3. Layout --- */
 .container {
-  padding: 0 2.875rem;
+  width: 90%;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 75%;
-    margin: 0 auto;
+    padding: 0 2.875rem;
   }
 }
 
@@ -167,6 +168,14 @@ button {
     padding-left: 0;
     text-align: center;
   }
+}
+
+/* menu and checkout section container */
+.menu-checkout-section {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* menu section */
@@ -241,7 +250,7 @@ button {
   font-size: clamp(1rem, 1vw + 0.5rem, 1.3rem);
   line-height: 1.4;
   letter-spacing: 0.02em;
-  color: #757575; 
+  color: #757575;
   margin: 4px 0;
 }
 
@@ -270,7 +279,8 @@ button {
 }
 
 .checkout-section {
-  margin-top: 25px 0;
+  width: 100%;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,11 +293,13 @@ button {
 }
 
 .checkout-total {
-  width: 508px;
+  width: 100%;
+  max-width: 508px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 15px 0;
+  margin: 0 auto;
 }
 
 .total-row {
@@ -333,6 +345,24 @@ button {
   box-shadow:
     0 1px 3px 0 rgb(0 0 0 / 0.1),
     0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 768px) {
+  .menu-checkout-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .menu {
+    flex: 1 0 65%;
+  }
+
+  .checkout-section {
+    flex: 0 0 35%;
+    padding-left: 2.5rem;
+  }
 }
 
 /* payment modal section  */

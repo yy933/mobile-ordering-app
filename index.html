@@ -41,48 +41,50 @@
     </header>
 
     <main>
-      <section
-        class="menu container default-state"
-        aria-labelledby="menu-heading"
-      >
-        <h2 id="menu-heading" class="sr-only">Our Menu</h2>
-        <div class="promo-banner">
-          <p>
-            🍺 <strong>Combo Deal:</strong> Add a Beer + any item to save
-            <strong>$2</strong>!
-          </p>
-        </div>
-
-        <ul class="menu-list">
-          <!-- Menu item will be generated here by JavaScript. -->
-        </ul>
-      </section>
-
-      <!-- This section will be rendered by JavaScript once the user add items to the order. -->
-      <section
-        class="checkout-section container pre-checkout-state hide"
-        aria-labelledby="order-heading"
-      >
-        <h2 id="order-heading" class="checkout-title fs-title">Your order</h2>
-        <ul class="checkout-list">
-          <!-- Checkout item will be generated here by JavaScript. -->
-        </ul>
-        <div class="checkout-total">
-          <div class="total-row">
-            <span class="fs-title">Total price:</span>
-            <div class="total-amount-details">
-              <span class="combo-discount hide">Combo discount applied!</span>
-              <span class="total-amount-without-discount fs-price hide"
-                >$30</span
-              >
-              <span class="total-amount fs-price"></span>
-            </div>
+      <div class="menu-checkout-section">
+        <section
+          class="menu container default-state"
+          aria-labelledby="menu-heading"
+        >
+          <h2 id="menu-heading" class="sr-only">Our Menu</h2>
+          <div class="promo-banner">
+            <p>
+              🍺 <strong>Combo Deal:</strong> Add a Beer + any item to save
+              <strong>$2</strong>!
+            </p>
           </div>
-          <button type="button" class="complete-order-btn btn-primary">
-            Complete Order
-          </button>
-        </div>
-      </section>
+
+          <ul class="menu-list">
+            <!-- Menu item will be generated here by JavaScript. -->
+          </ul>
+        </section>
+
+        <!-- This section will be rendered by JavaScript once the user add items to the order. -->
+        <section
+          class="checkout-section container pre-checkout-state hide"
+          aria-labelledby="order-heading"
+        >
+          <h2 id="order-heading" class="checkout-title fs-title">Your order</h2>
+          <ul class="checkout-list">
+            <!-- Checkout item will be generated here by JavaScript. -->
+          </ul>
+          <div class="checkout-total">
+            <div class="total-row">
+              <span class="fs-title">Total price:</span>
+              <div class="total-amount-details">
+                <span class="combo-discount hide">Combo discount applied!</span>
+                <span class="total-amount-without-discount fs-price hide"
+                  >$30</span
+                >
+                <span class="total-amount fs-price"></span>
+              </div>
+            </div>
+            <button type="button" class="complete-order-btn btn-primary">
+              Complete Order
+            </button>
+          </div>
+        </section>
+      </div>
 
       <!-- This section will be rendered by JavaScript once the user clicks the "Complete Order" button. -->
       <section
