@@ -232,5 +232,8 @@ const handleNumericInput = (e, limit) => {
   e.target.value = value;
 };
 
+// update the current year in the footer
+document.getElementById("current-year").innerText = new Date().getFullYear();
+
 // Render
 renderMenu(menuArray);
