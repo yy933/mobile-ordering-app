@@ -12,6 +12,12 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }
 
 ul {
@@ -474,6 +480,53 @@ button {
   padding: 3rem 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* footer section */
+.app-footer {
+  width: 100%;
+  flex-shrink: 0;
+  background-color: #f8f8f8;
+  border-top: 1px solid #d2d2d2;
+  padding: 2rem 0;
+  margin-top: 50px;
+  color: #757575;
+  font-family: Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.footer-right a {
+  color: #757575;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-right a:hover {
+  color: #16db99;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /* hide elements */
